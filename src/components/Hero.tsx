@@ -17,50 +17,50 @@ const Hero = () => {
       name: "LinkedIn",
       icon: Linkedin,
       url: "https://linkedin.com/in/rajesh-r",
-      color: "hover:text-blue-600"
+      color: "hover:text-blue-400"
     },
     {
       name: "GitHub",
       icon: Github,
       url: "https://github.com/rajesh-r",
-      color: "hover:text-gray-800 dark:hover:text-gray-300"
+      color: "hover:text-purple-400"
     },
     {
       name: "LeetCode",
       icon: Code,
       url: "https://leetcode.com/rajesh-r",
-      color: "hover:text-orange-500"
+      color: "hover:text-orange-400"
     }
   ];
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       <div className="container-custom section-padding">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div className={`space-y-8 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
             <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-bold text-foreground">
+              <h1 className="text-5xl lg:text-7xl font-bold text-white">
                 Hi, I'm{" "}
-                <span className="gradient-text">Rajesh R</span>
+                <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Rajesh R</span>
               </h1>
               
-              <div className="text-xl lg:text-2xl text-muted-foreground h-12">
+              <div className="text-xl lg:text-2xl text-slate-300 h-12">
                 <TypewriterEffect 
                   texts={[
-                    "Data Associate",
-                    "Backend Developer", 
-                    "Software Engineer"
+                    "Software Developer",
+                    "Backend Specialist", 
+                    "Full Stack Engineer"
                   ]}
                 />
               </div>
             </div>
 
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-              Experienced Data Associate at Amazon Development Centre with expertise in backend development and data processing. 
-              Delivering scalable data solutions with 
-              <span className="text-secondary font-semibold"> 98% efficiency</span> and 
-              <span className="text-secondary font-semibold"> 25% performance improvements</span>.
+            <p className="text-lg text-slate-300 leading-relaxed max-w-xl">
+              Passionate Software Developer at Amazon Development Centre with expertise in backend development and scalable solutions. 
+              Creating innovative software with 
+              <span className="text-cyan-400 font-semibold"> 98% efficiency</span> and 
+              <span className="text-purple-400 font-semibold"> 25% performance improvements</span>.
             </p>
 
             {/* Social Links */}
@@ -70,7 +70,7 @@ const Hero = () => {
                   key={link.name}
                   variant="outline"
                   size="lg"
-                  className={`group transition-all duration-300 hover:scale-105 ${
+                  className={`group transition-all duration-300 hover:scale-105 border-slate-600 bg-slate-800/50 text-slate-300 hover:bg-slate-700 backdrop-blur-sm ${
                     isVisible ? 'animate-slide-in-right' : 'opacity-0'
                   }`}
                   style={{ animationDelay: `${index * 200}ms` }}
@@ -85,7 +85,7 @@ const Hero = () => {
             {/* Resume Download */}
             <Button
               size="lg"
-              className={`bg-gradient-to-r from-primary to-secondary hover:from-primary-dark hover:to-secondary-dark text-white transition-all duration-300 hover:scale-105 ${
+              className={`bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-cyan-500/25 ${
                 isVisible ? 'animate-fade-in' : 'opacity-0'
               }`}
               style={{ animationDelay: '800ms' }}
@@ -99,11 +99,11 @@ const Hero = () => {
           <div className={`relative ${isVisible ? 'animate-slide-in-right' : 'opacity-0'}`}>
             <div className="relative mx-auto w-80 h-80 lg:w-96 lg:h-96">
               {/* Profile Image */}
-              <div className="w-full h-full rounded-full bg-gradient-to-br from-primary to-secondary p-1">
-                <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
+              <div className="w-full h-full rounded-full bg-gradient-to-br from-cyan-400 via-purple-500 to-pink-500 p-1 shadow-2xl">
+                <div className="w-full h-full rounded-full bg-slate-900 flex items-center justify-center overflow-hidden">
                   <img
                     src="/lovable-uploads/15c31b4b-d8e1-4637-8b64-59ef002b4386.png"
-                    alt="Rajesh R - Data Associate at Amazon"
+                    alt="Rajesh R - Software Developer at Amazon"
                     className="w-full h-full rounded-full object-cover"
                   />
                 </div>
