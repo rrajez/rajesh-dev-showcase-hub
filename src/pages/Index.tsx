@@ -1,13 +1,41 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Projects from "@/components/Projects";
+import ParticleBackground from "@/components/ParticleBackground";
+import { useState } from "react";
+
+const queryClient = new QueryClient();
 
 const Index = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+    document.documentElement.classList.toggle('dark');
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <div className={`min-h-screen transition-colors duration-300`}>
+          <Toaster />
+          <Sonner />
+          <ParticleBackground />
+          <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+          <main>
+            <Hero />
+            <About />
+            <Projects />
+          </main>
+        </div>
+      </TooltipProvider>
+    </QueryClientProvider>
   );
 };
 
