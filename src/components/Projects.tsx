@@ -60,13 +60,13 @@ const Projects = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="projects" className="section-padding">
+    <section ref={sectionRef} id="projects" className="section-padding bg-gray-950">
       <div className="container-custom">
         <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-          <h2 className="text-4xl lg:text-5xl font-bold gradient-text mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent mb-4">
             Featured Projects
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             A showcase of my recent work demonstrating expertise in full-stack development, 
             API design, and system architecture.
           </p>
@@ -76,7 +76,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <Card
               key={project.title}
-              className={`group hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden ${
+              className={`group hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 hover:-translate-y-2 overflow-hidden bg-gray-900/80 backdrop-blur-md border border-gray-800/50 hover:border-blue-500/50 ${
                 isVisible ? 'animate-fade-in' : 'opacity-0'
               }`}
               style={{ animationDelay: `${index * 200}ms` }}
@@ -88,19 +88,19 @@ const Projects = () => {
                   alt={project.title}
                   className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute top-4 right-4">
-                  <div className="bg-white/90 dark:bg-gray-800/90 p-2 rounded-full">
-                    <project.icon className="h-6 w-6 text-primary" />
+                  <div className="bg-gray-900/90 backdrop-blur-md border border-gray-700/50 p-2 rounded-full">
+                    <project.icon className="h-6 w-6 text-blue-400" />
                   </div>
                 </div>
               </div>
 
               <CardHeader>
-                <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                <CardTitle className="text-xl text-gray-100 group-hover:text-blue-400 transition-colors">
                   {project.title}
                 </CardTitle>
-                <CardDescription className="text-sm leading-relaxed">
+                <CardDescription className="text-sm leading-relaxed text-gray-300">
                   {project.description}
                 </CardDescription>
               </CardHeader>
@@ -109,7 +109,7 @@ const Projects = () => {
                 {/* Technologies */}
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
-                    <Badge key={tech} variant="secondary" className="text-xs">
+                    <Badge key={tech} className="bg-blue-500/20 text-blue-300 border-blue-500/30 hover:bg-blue-500/30 text-xs">
                       {tech}
                     </Badge>
                   ))}
@@ -117,11 +117,11 @@ const Projects = () => {
 
                 {/* Features */}
                 <div className="space-y-2">
-                  <h4 className="font-semibold text-sm">Key Features:</h4>
-                  <ul className="text-sm text-muted-foreground space-y-1">
+                  <h4 className="font-semibold text-sm text-gray-100">Key Features:</h4>
+                  <ul className="text-sm text-gray-300 space-y-1">
                     {project.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-center">
-                        <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
+                        <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-2 flex-shrink-0" />
                         {feature}
                       </li>
                     ))}
@@ -133,7 +133,7 @@ const Projects = () => {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="flex-1 group-hover:border-primary transition-colors"
+                    className="flex-1 bg-gray-800/50 border-gray-600 text-gray-200 hover:bg-gray-700/50 hover:border-blue-500/50 hover:text-blue-300 transition-colors"
                     onClick={() => window.open(project.githubUrl, '_blank')}
                   >
                     <Github className="mr-2 h-4 w-4" />
@@ -141,7 +141,7 @@ const Projects = () => {
                   </Button>
                   <Button
                     size="sm"
-                    className="flex-1 bg-gradient-to-r from-primary to-secondary hover:from-primary-dark hover:to-secondary-dark"
+                    className="flex-1 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white border-none"
                     onClick={() => window.open(project.liveUrl, '_blank')}
                   >
                     <ExternalLink className="mr-2 h-4 w-4" />
@@ -155,12 +155,12 @@ const Projects = () => {
 
         {/* Call to Action */}
         <div className={`text-center mt-16 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '800ms' }}>
-          <p className="text-lg text-muted-foreground mb-6">
+          <p className="text-lg text-gray-300 mb-6">
             Interested in working together? Let's discuss your next project.
           </p>
           <Button
             size="lg"
-            className="bg-gradient-to-r from-primary to-secondary hover:from-primary-dark hover:to-secondary-dark text-white"
+            className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white border-none px-8 py-3"
             onClick={() => window.open('mailto:rajesh.r@example.com', '_blank')}
           >
             Get In Touch
