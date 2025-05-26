@@ -48,17 +48,17 @@ const Hero = () => {
               <div className="text-xl lg:text-2xl text-muted-foreground h-12">
                 <TypewriterEffect 
                   texts={[
-                    "Software Developer",
-                    "Data Associate", 
-                    "Backend Developer"
+                    "Data Associate",
+                    "Backend Developer", 
+                    "Software Engineer"
                   ]}
                 />
               </div>
             </div>
 
             <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-              Experienced Software Developer with expertise in backend development and data processing. 
-              Currently working at Amazon Development Centre, delivering scalable solutions with 
+              Experienced Data Associate at Amazon Development Centre with expertise in backend development and data processing. 
+              Delivering scalable data solutions with 
               <span className="text-secondary font-semibold"> 98% efficiency</span> and 
               <span className="text-secondary font-semibold"> 25% performance improvements</span>.
             </p>
@@ -98,12 +98,12 @@ const Hero = () => {
           {/* Profile Image & Tech Icons */}
           <div className={`relative ${isVisible ? 'animate-slide-in-right' : 'opacity-0'}`}>
             <div className="relative mx-auto w-80 h-80 lg:w-96 lg:h-96">
-              {/* Profile Image Placeholder */}
+              {/* Profile Image */}
               <div className="w-full h-full rounded-full bg-gradient-to-br from-primary to-secondary p-1">
-                <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
+                <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
-                    alt="Rajesh R - Software Developer"
+                    src="/lovable-uploads/15c31b4b-d8e1-4637-8b64-59ef002b4386.png"
+                    alt="Rajesh R - Data Associate at Amazon"
                     className="w-full h-full rounded-full object-cover"
                   />
                 </div>

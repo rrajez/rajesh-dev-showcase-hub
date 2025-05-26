@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Award, TrendingUp, Users } from "lucide-react";
+import { Calendar, Award, TrendingUp, Users, Star } from "lucide-react";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -28,32 +28,31 @@ const About = () => {
   }, []);
 
   const skills = [
-    { name: "Java", level: 95 },
-    { name: "Python", level: 90 },
-    { name: "Spring Boot", level: 88 },
-    { name: "MySQL", level: 85 },
-    { name: "JavaScript", level: 80 },
-    { name: "HTML/CSS", level: 85 },
+    { name: "Java", level: "Expert" },
+    { name: "Python", level: "Advanced" },
+    { name: "Spring Boot", level: "Advanced" },
+    { name: "MySQL", level: "Intermediate" },
+    { name: "JavaScript", level: "Intermediate" },
+    { name: "HTML/CSS", level: "Intermediate" },
   ];
+
+  const getSkillStars = (level: string) => {
+    const levels = { "Expert": 5, "Advanced": 4, "Intermediate": 3, "Beginner": 2 };
+    return levels[level as keyof typeof levels] || 3;
+  };
 
   const timeline = [
     {
-      year: "2023 - Present",
-      title: "Senior Software Developer",
+      year: "2021 - Present",
+      title: "Data Associate",
       company: "Amazon Development Centre",
-      description: "Leading backend development initiatives with focus on data processing and system optimization."
-    },
-    {
-      year: "2021 - 2023",
-      title: "Software Developer",
-      company: "Amazon Development Centre",
-      description: "Developed scalable backend solutions achieving 98% efficiency in data processing systems."
+      description: "Specializing in data processing, analysis, and backend development with focus on system optimization and efficiency improvements."
     },
     {
       year: "2019 - 2021",
-      title: "Data Associate",
+      title: "Junior Data Associate",
       company: "Amazon Development Centre",
-      description: "Specialized in data analysis and processing, reducing processing time by 25%."
+      description: "Started career in data analysis and processing, learning backend development and contributing to data processing systems."
     }
   ];
 
@@ -70,8 +69,8 @@ const About = () => {
     },
     {
       icon: Users,
-      title: "Team Leadership",
-      description: "Led cross-functional teams on critical projects"
+      title: "Team Collaboration",
+      description: "Worked with cross-functional teams on critical projects"
     }
   ];
 
@@ -83,7 +82,7 @@ const About = () => {
             About Me
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Passionate software developer with extensive experience in backend development, 
+            Passionate Data Associate with experience in backend development, 
             data processing, and system optimization at Amazon Development Centre.
           </p>
         </div>
@@ -126,21 +125,27 @@ const About = () => {
               <h3 className="text-2xl font-bold mb-6">Technical Skills</h3>
               <div className="space-y-4">
                 {skills.map((skill, index) => (
-                  <div key={skill.name}>
-                    <div className="flex justify-between mb-2">
-                      <span className="font-medium">{skill.name}</span>
-                      <span className="text-muted-foreground">{skill.level}%</span>
-                    </div>
-                    <div className="skill-progress">
-                      <div
-                        className={`skill-progress-bar ${
-                          skillsAnimated ? 'w-full' : 'w-0'
-                        }`}
-                        style={{
-                          width: skillsAnimated ? `${skill.level}%` : '0%',
-                          transitionDelay: `${index * 200}ms`
-                        }}
-                      />
+                  <div key={skill.name} className="flex items-center justify-between p-4 bg-card rounded-lg border">
+                    <span className="font-medium text-lg">{skill.name}</span>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-sm text-muted-foreground mr-2">{skill.level}</span>
+                      <div className="flex">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className={`w-4 h-4 ${
+                              i < getSkillStars(skill.level)
+                                ? 'text-yellow-400 fill-current'
+                                : 'text-gray-300'
+                            } ${
+                              skillsAnimated ? 'animate-fade-in' : 'opacity-0'
+                            }`}
+                            style={{
+                              animationDelay: `${index * 200 + i * 100}ms`
+                            }}
+                          />
+                        ))}
+                      </div>
                     </div>
                   </div>
                 ))}
