@@ -75,13 +75,13 @@ const About = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="about" className="section-padding bg-muted/30">
+    <section ref={sectionRef} id="about" className="section-padding bg-slate-900/95">
       <div className="container-custom">
         <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
           <h2 className="text-4xl lg:text-5xl font-bold gradient-text mb-4">
             About Me
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
             Passionate Data Associate with experience in backend development, 
             data processing, and system optimization at Amazon Development Centre.
           </p>
@@ -91,26 +91,26 @@ const About = () => {
           {/* Professional Journey */}
           <div className={`space-y-8 ${isVisible ? 'animate-slide-in-right' : 'opacity-0'}`}>
             <div>
-              <h3 className="text-2xl font-bold mb-6 flex items-center">
-                <Calendar className="mr-3 h-6 w-6 text-primary" />
+              <h3 className="text-2xl font-bold mb-6 flex items-center text-slate-100">
+                <Calendar className="mr-3 h-6 w-6 text-cyan-400" />
                 Professional Journey
               </h3>
               <div className="space-y-6">
                 {timeline.map((item, index) => (
-                  <Card key={index} className="border-l-4 border-l-primary">
+                  <Card key={index} className="border-l-4 border-l-cyan-400 bg-slate-800/50 backdrop-blur-md border-slate-700/50">
                     <CardHeader>
                       <div className="flex justify-between items-start">
                         <div>
-                          <CardTitle className="text-lg">{item.title}</CardTitle>
-                          <CardDescription className="text-primary font-medium">
+                          <CardTitle className="text-lg text-slate-100">{item.title}</CardTitle>
+                          <CardDescription className="text-cyan-400 font-medium">
                             {item.company}
                           </CardDescription>
                         </div>
-                        <Badge variant="secondary">{item.year}</Badge>
+                        <Badge variant="secondary" className="bg-purple-600/20 text-purple-300 border-purple-500/30">{item.year}</Badge>
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-muted-foreground">{item.description}</p>
+                      <p className="text-slate-300">{item.description}</p>
                     </CardContent>
                   </Card>
                 ))}
@@ -122,21 +122,21 @@ const About = () => {
           <div className={`space-y-8 ${isVisible ? 'animate-slide-in-right' : 'opacity-0'}`} style={{ animationDelay: '200ms' }}>
             {/* Skills */}
             <div>
-              <h3 className="text-2xl font-bold mb-6">Technical Skills</h3>
+              <h3 className="text-2xl font-bold mb-6 text-slate-100">Technical Skills</h3>
               <div className="space-y-4">
                 {skills.map((skill, index) => (
-                  <div key={skill.name} className="flex items-center justify-between p-4 bg-card rounded-lg border">
-                    <span className="font-medium text-lg">{skill.name}</span>
+                  <div key={skill.name} className="flex items-center justify-between p-4 bg-slate-800/50 backdrop-blur-md rounded-lg border border-slate-700/50">
+                    <span className="font-medium text-lg text-slate-100">{skill.name}</span>
                     <div className="flex items-center space-x-2">
-                      <span className="text-sm text-muted-foreground mr-2">{skill.level}</span>
+                      <span className="text-sm text-slate-400 mr-2">{skill.level}</span>
                       <div className="flex">
                         {[...Array(5)].map((_, i) => (
                           <Star
                             key={i}
                             className={`w-4 h-4 ${
                               i < getSkillStars(skill.level)
-                                ? 'text-yellow-400 fill-current'
-                                : 'text-gray-300'
+                                ? 'text-cyan-400 fill-current'
+                                : 'text-slate-600'
                             } ${
                               skillsAnimated ? 'animate-fade-in' : 'opacity-0'
                             }`}
@@ -154,15 +154,15 @@ const About = () => {
 
             {/* Achievements */}
             <div>
-              <h3 className="text-2xl font-bold mb-6">Key Achievements</h3>
+              <h3 className="text-2xl font-bold mb-6 text-slate-100">Key Achievements</h3>
               <div className="grid gap-4">
                 {achievements.map((achievement, index) => (
-                  <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
+                  <Card key={index} className="hover:shadow-lg transition-all duration-300 bg-slate-800/50 backdrop-blur-md border border-slate-700/50 hover:border-cyan-500/50">
                     <CardContent className="flex items-start p-6">
-                      <achievement.icon className="h-8 w-8 text-primary mr-4 mt-1" />
+                      <achievement.icon className="h-8 w-8 text-cyan-400 mr-4 mt-1" />
                       <div>
-                        <h4 className="font-bold text-lg mb-1">{achievement.title}</h4>
-                        <p className="text-muted-foreground">{achievement.description}</p>
+                        <h4 className="font-bold text-lg mb-1 text-slate-100">{achievement.title}</h4>
+                        <p className="text-slate-300">{achievement.description}</p>
                       </div>
                     </CardContent>
                   </Card>
